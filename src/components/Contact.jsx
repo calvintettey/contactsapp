@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 let Contact = (props) => {
     return (
         <div>
-            <h3>Name: {props.name} </h3>
-            <h4>Number: {props.number} </h4>
-            <p>Email: {props.email} </p>
-            <hr/>
+            <h3>{props.name} </h3>
+            <p>{props.number} </p>
+            <p>{props.email} </p>
+            <hr />
         </div>
     );
 }

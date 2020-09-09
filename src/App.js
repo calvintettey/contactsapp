@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { connect } from "react-redux";
 import { addContact } from "./store/contactlistActions";
-import AddContactForm from './components/Contact';
+import AddContactForm from './components/AddContactForm';
 import ContactList from './components/ContactList';
 
 export class App extends Component {

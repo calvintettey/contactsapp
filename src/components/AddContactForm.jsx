@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class AddContactForm extends Component {
+export class AddContactForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -18,7 +18,7 @@ class AddContactForm extends Component {
     }
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.addBook(this.state)
+        this.props.addContact(this.state)
         this.setState({name:"", number: "", email:""})
         console.log("submitted");
     }
@@ -26,24 +26,26 @@ class AddContactForm extends Component {
     render() {
         return (
             <>
-                 <form onSubmit={this.handleSubmit}>
-                     <div>
-                         <label htmlFor="name">Name</label>
-                         <input type="text" name="name" onChange={this.handleChange} />               
-                        </div>
-                     <div>
-                         <label htmlFor="number">Number</label>
-                         <input type="tel" name="number" onChange={this.handleChange} />               
-                        </div>
-                     <div>
-                         <label htmlFor="email">Email</label>
-                         <input type="email" name="Email" onChange={this.handleChange} />               
-                     </div>
-                     <button type="submit">Add To Contact</button>
-                 </form>
+                <form onSubmit={this.handleSubmit}>
+                    <div>
+                        <label htmlFor="name">Name</label>
+                        <input type="text" name="name" onChange={this.handleChange} />               
+                    </div>
+                    <div>
+                        <label htmlFor="number">Number</label>
+                        <input type="tel" name="number" onChange={this.handleChange} />               
+                    </div>
+                    <div>
+                        <label htmlFor="email">Email</label>
+                        <input type="email" name="Email" onChange={this.handleChange} />               
+                    </div>
+                    <div>
+                    <button type="submit">Add To Contacts</button>
+                    </div>
+                </form>
             </>
         );
     }
 }
 
-export default AddBookForm;
+export default AddContactForm;

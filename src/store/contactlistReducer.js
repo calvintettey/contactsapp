@@ -1,9 +1,9 @@
 let initialState = {
     contacts : [
-        {name: "Kojo Asante", number: "0242742594", email: "kjasante@gmail.com"},
         {name: "Erika Senanu", number: "0277161222", email: "erikas@gmail.com"},
         {name: "Eyram Torglo", number: "0277573300", email: "etorglo@gmail.com"},
         {name: "Senyo King", number: "0244264645", email: "kingsenyo@gmail.com"},
+        {name: "Kojo Asante", number: "0242742594", email: "kjasante@gmail.com"},
       ]
 }
 
