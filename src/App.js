@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import { connect } from "react-redux";
+import { addContact } from "./store/contactlistActions";
+import AddContactForm from './components/Contact';
+import ContactList from './components/ContactList';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export class App extends Component {
+  
+  
+  addNewContact = (contact) => {
+   this.props.addContact(contact)
+  }
+
+  render(){
+    return (
+      <div className="App">
+        <AddContactForm addContact ={this.addNewContact} />
+        <ContactList ContactList={this.props.contacts} />
+      </div>
+    );
+  }
 }
 
-export default App;
+let mapStateToProps = (state) => ({
+  contacts: state.contacts
+});
+
+let mapDispatchToProps = {
+  addContact: addContact
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+
