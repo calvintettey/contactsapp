@@ -1,9 +1,11 @@
+import { v4 as uuid } from "uuid";
+
 let initialState = {
     contacts : [
-        {name: "Erika Senanu", number: "0277161222", email: "erikas@gmail.com"},
-        {name: "Eyram Torglo", number: "0277573300", email: "etorglo@gmail.com"},
-        {name: "Senyo King", number: "0244264645", email: "kingsenyo@gmail.com"},
-        {name: "Kojo Asante", number: "0242742594", email: "kjasante@gmail.com"},
+        {id: "1", name: "Erika Senanu", number: "0277161222", email: "erikas@gmail.com"},
+        {id: "2", name: "Eyram Torglo", number: "0277573300", email: "etorglo@gmail.com"},
+        {id: "3", name: "Senyo King", number: "0244264645", email: "kingsenyo@gmail.com"},
+        {id: "4", name: "Kojo Asante", number: "0242742594", email: "kjasante@gmail.com"},
       ]
 }
 
@@ -11,6 +13,7 @@ let contactlistReducer = (state = initialState, action) => {
     switch (action.type) {
         case "ADD_CONTACT":
             let newContact = {
+                id: uuid(),
                 name: action.payload.name,
                 number: action.payload.number,
                 email: action.payload.email,
@@ -18,7 +21,9 @@ let contactlistReducer = (state = initialState, action) => {
             return{...state, contacts:[...state.contacts, newContact]};
             
             
-            break;
+            case "DELETE_CONTACT":
+                let filteredContacts = state.contacts.filter(contact => contact.id !==action.payload);
+                return {...state, contacts:filteredContacts}
     
         default:
             return state;

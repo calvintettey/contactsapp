@@ -29,7 +29,8 @@ export class AddContactForm extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <div>
                         <label htmlFor="name">Name</label>
-                        <input type="text" name="name" onChange={this.handleChange} />               
+                        <input 
+                        type="text" name="name" onChange={this.handleChange} />               
                     </div>
                     <div>
                         <label htmlFor="number">Number</label>

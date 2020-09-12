@@ -4,3 +4,11 @@ export let addContact = (contact) => {
         payload: contact
     }
 }
+
+
+export let deleteContact = (contact_id) => {
+    return {
+        type: "DELETE_CONTACT",
+        payload: contact_id
+    }
+}
