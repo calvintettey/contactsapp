@@ -20,7 +20,7 @@ export class App extends Component {
     return (
       <div className="App">
         <AddContactForm addContact ={this.addNewContact} />
-        <ContactList ContactList={this.props.contacts} deleteContact={this.deleteContact} />
+        <ContactList contacts={this.props.contacts} deleteContact={this.deleteContact} />
       </div>
     );
   }

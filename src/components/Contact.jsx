@@ -1,6 +1,6 @@
 import React from 'react';
 
-let Contact = ({props, deleteContact, id}) => {
+let Contact = ({ deleteContact, id, ...props}) => {
     let handleClick = () => {
         deleteContact(id)
     }
