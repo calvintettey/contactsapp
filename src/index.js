@@ -1,22 +1,32 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-import { createStore, applyMiddleware } from "redux";
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
+import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
+import contactlistReducer from "./store/contactlistReducer";
+import { getFirebase, reduxReactFirebase } from "react-redux-firebase";
+import { getFirestore, reduxFirestore } from "redux-firestore";
+import firebase from "./firebase/config";
 import thunk from "redux-thunk";
-import contactlistReducer from './store/contactlistReducer';
 
-const store = createStore(contactlistReducer, applyMiddleware(thunk));
+const store = createStore(
+  contactlistReducer, 
+  compose(
+    applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
+    reduxFirestore(firebase),
+    reduxReactFirebase(firebase)
+  )
+);
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}> 
+    <Provider store={store}>
       <App />
     </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
