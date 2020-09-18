@@ -8,7 +8,7 @@ let ContactList = (props) => {
       email={contact.email}
       number={contact.number}
       key={contact.id}
-    //   deleteContact={deleteContact}
+      removeContact={this.deleteContact}
     />
   ));
   return <div>{contactInfo}</div>;

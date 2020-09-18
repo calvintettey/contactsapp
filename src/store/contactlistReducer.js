@@ -24,6 +24,16 @@ let contactlistReducer = (state = initialState, action) => {
             case "DELETE_CONTACT":
                 let filteredContacts = state.contacts.filter(contact => contact.id !==action.payload);
                 return {...state, contacts:filteredContacts}
+
+            case "EDIT_CONTACT":
+                let updatedContacts = state.contacts.map(contact => {
+                    if (contact.id === action.contact_id) {
+                    return{...contact, ...action.updated_info}
+                    } else {
+                    return contact;
+                    }
+                });
+                return{...state, contact:updatedContacts}
     
         default:
             return state;
