@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-let Contact = ({ deleteContact, id, ...props}) => {
-    let handleClick = () => {
-        deleteContact(id)
+let Contact = ({ removeContact, id, ...props}) => {
+    const handleClick = () => {
+        Contact(id)
     }
     return (
         <div>
@@ -11,7 +11,7 @@ let Contact = ({ deleteContact, id, ...props}) => {
             <p>{props.number} </p>
             <p>{props.email} </p>
             <button onClick={handleClick}>Delete Contact</button>
-            <Link to={`/edit/${id}`}>Edit Contact</Link>
+            <button><Link to={`/edit/${id}`}>Edit Contact</Link></button>
             <hr />
         </div>
     );

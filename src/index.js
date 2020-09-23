@@ -13,7 +13,7 @@ import firebase from "./firebase/config";
 import thunk from "redux-thunk";
 
 const store = createStore(
-  contactlistReducer, 
+  contactlistReducer,
   compose(
     applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
     reduxFirestore(firebase),

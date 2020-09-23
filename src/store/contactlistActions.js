@@ -1,8 +1,15 @@
 export let addContact = (contact) => {
-    return {
-        type: "ADD_CONTACT",
-        payload: contact
-    }
+    return (dispatch, state, { getFirestore }) => {
+        getFirestore()
+          .collection("All Contacts")
+          .add(user)
+          .then((doc) => {
+            dispatch({
+                type: "ADD_CONTACT",
+                payload: contact
+            })
+          });
+      };
 }
 
 
