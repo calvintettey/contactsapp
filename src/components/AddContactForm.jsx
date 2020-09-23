@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addContact } from '../store/contactlistActions';
 
 export class AddContactForm extends Component {
     constructor(props) {
@@ -38,7 +40,7 @@ export class AddContactForm extends Component {
                     </div>
                     <div>
                         <label htmlFor="email">Email</label>
-                        <input type="email" name="Email" onChange={this.handleChange} />               
+                        <input type="email" name="email" onChange={this.handleChange} />               
                     </div>
                     <div>
                     <button type="submit">Add To Contacts</button>
@@ -49,4 +51,8 @@ export class AddContactForm extends Component {
     }
 }
 
-export default AddContactForm;
+const mapDispatchToProps = {
+    addContact: addContact
+}
+
+export default connect(null, mapDispatchToProps) (AddContactForm);

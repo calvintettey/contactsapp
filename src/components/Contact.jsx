@@ -1,20 +1,24 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import { deleteContact } from "../store/contactlistActions";
+import { connect } from "react-redux";
 
-let Contact = ({ removeContact, id, ...props}) => {
+
+let Contact = ({ name, number, email, deleteContact, ...props}) => {
     const handleClick = () => {
-        Contact(id)
+        deleteContact(props.id);
     }
+    console.log("id is", props.id)
     return (
         <div>
-            <h3>{props.name} </h3>
-            <p>{props.number} </p>
-            <p>{props.email} </p>
+            <h3>{name} </h3>
+            <p>{number} </p>
+            <p>{email} </p>
             <button onClick={handleClick}>Delete Contact</button>
-            <button><Link to={`/edit/${id}`}>Edit Contact</Link></button>
+            <button><Link to={`/edit/${props.id}`}>Edit Contact</Link></button>
             <hr />
         </div>
     );
-}
+};
 
-export default Contact;
+export default connect (null, { deleteContact })(Contact);

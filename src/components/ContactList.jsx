@@ -1,13 +1,14 @@
 import React from "react";
 import Contact from "./Contact";
 
-let ContactList = (props, deleteContact) => {
+let ContactList = (props) => {
   const contactInfo = props.contacts.map((contact) => (
     <Contact
       name={contact.name}
       email={contact.email}
       number={contact.number}
       key={contact.id}
+      id={contact.id}
     />
   ));
   return <div>{contactInfo}</div>;

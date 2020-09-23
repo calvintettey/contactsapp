@@ -9,7 +9,7 @@ const Router = () => {
     <div>
       <BrowserRouter>
         <Route exact path="/" component={App} />
-        <Route path="/edit/:id " component={EditForm} />
+        <Route path="/edit/:id" component={EditForm} />
       </BrowserRouter>
     </div>
   );

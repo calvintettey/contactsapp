@@ -31,7 +31,7 @@ export class EditForm extends Component {
     this.setState({
       name: "",
       number: "",
-      email: ""
+      email: "",
     });
     this.props.history.push("/");
   };
@@ -42,17 +42,32 @@ export class EditForm extends Component {
         <form onSubmit={this.handleSubmit}>
           <div>
             <label htmlFor="name">Name</label>
-            <input type="text" name="name" onChange={this.handleChange} />
+            <input
+              type="text"
+              name="name"
+              onChange={this.handleChange}
+              value={this.state.name}
+            />
           </div>
 
           <div>
             <label htmlFor="number">Number</label>
-            <input type="tel" name="number" onChange={this.handleChange} />
+            <input
+              type="tel"
+              name="number"
+              onChange={this.handleChange}
+              value={this.state.number}
+            />
           </div>
 
           <div>
             <label htmlFor="email">Email</label>
-            <input type="email" name="Email" onChange={this.handleChange} />
+            <input
+              type="email"
+              name="Email"
+              onChange={this.handleChange}
+              value={this.state.email}
+            />
           </div>
 
           <div>
@@ -65,15 +80,15 @@ export class EditForm extends Component {
 }
 
 let mapStateToProps = (state, ownProps) => {
-  {
-    contact: state.users.find(
-      contact => contact.id === ownProps.match.params.id
-    );
-  }
+  return {
+    contact: state.contacts.find(
+      (contact) => contact.id === ownProps.match.params.id
+    ),
+  };
 };
 
 let mapDispatchToProps = {
-  editContact
+  editContact,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditForm);
