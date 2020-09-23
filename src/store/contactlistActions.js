@@ -21,6 +21,7 @@ export let deleteContact = (contact_id) => {
 };
 
 export let editContact = (contact_id, updated_info) => {
+    console.log("info", updated_info);
     return {
         type: "EDIT_CONTACT",
         contact_id: contact_id, 

@@ -26,6 +26,7 @@ export class EditForm extends Component {
       number: this.state.number,
       email: this.state.email,
     };
+    console.log(updatedInfo);
 
     this.props.editContact(this.id, updatedInfo);
     this.setState({

@@ -26,6 +26,7 @@ let contactlistReducer = (state = initialState, action) => {
                 return {...state, contacts:filteredContacts}
 
             case "EDIT_CONTACT":
+                console.log("edit reducer here")
                 let updatedContacts = state.contacts.map(contact => {
                     if (contact.id === action.contact_id) {
                     return{...contact, ...action.updated_info}
@@ -33,7 +34,7 @@ let contactlistReducer = (state = initialState, action) => {
                     return contact;
                     }
                 });
-                return{...state, contact:updatedContacts}
+                return{...state, contacts: updatedContacts}
     
         default:
             return state;
