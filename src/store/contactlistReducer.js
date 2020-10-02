@@ -35,6 +35,9 @@ let contactlistReducer = (state = initialState, action) => {
                     }
                 });
                 return{...state, contacts: updatedContacts}
+
+            case "SET_ALL_CONTACTS":
+                return{ contacts: action.payload };  
     
         default:
             return state;
