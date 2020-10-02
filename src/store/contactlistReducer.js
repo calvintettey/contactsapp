@@ -1,12 +1,7 @@
 import { v4 as uuid } from "uuid";
 
 let initialState = {
-    contacts : [
-        {id: "1", name: "Erika Senanu", number: "0277161222", email: "erikas@gmail.com"},
-        {id: "2", name: "Eyram Torglo", number: "0277573300", email: "etorglo@gmail.com"},
-        {id: "3", name: "Senyo King", number: "0244264645", email: "kingsenyo@gmail.com"},
-        {id: "4", name: "Kojo Asante", number: "0242742594", email: "kjasante@gmail.com"},
-      ]
+    contacts : []
 }
 
 let contactlistReducer = (state = initialState, action) => {
