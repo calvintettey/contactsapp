@@ -82,7 +82,7 @@ export class EditForm extends Component {
 
 let mapStateToProps = (state, ownProps) => {
   return {
-    contact: state.contacts.find(
+    contact: state.contactlistState.contacts.find(
       (contact) => contact.id === ownProps.match.params.id
     ),
   };
