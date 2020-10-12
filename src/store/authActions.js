@@ -44,7 +44,7 @@ export const registerWithEmail = (email, password) => {
     };
   };
   
-  export const logoutUser = ()=>{
+  export const logoutContact = ()=>{
       return (dispatch, state, {getFirebase})=>{
           let firebase = getFirebase();
           firebase

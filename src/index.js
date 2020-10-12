@@ -6,14 +6,14 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
-import contactlistReducer from "./store/contactlistReducer";
+import mainReducer from "./store/mainReducer";
 import { getFirebase, reduxReactFirebase } from "react-redux-firebase";
 import { getFirestore, reduxFirestore } from "redux-firestore";
 import firebase from "./firebase/config";
 import thunk from "redux-thunk";
 
 const store = createStore(
-  contactlistReducer,
+  mainReducer,
   compose(
     applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
     reduxFirestore(firebase),
